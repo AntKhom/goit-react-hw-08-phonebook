@@ -1,24 +1,51 @@
-import { selectContactsFilter} from 'redux/tasks/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { setContactsFilter } from 'redux/tasks/filterSlice';
+import { selectContactsFilter } from 'redux/tasks/selectors';
+
+import TextField from '@mui/material/TextField';
+import { Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const Filter = () => {
-    const dispatch = useDispatch();
-    const filter = useSelector(selectContactsFilter);
+  const dispatch = useDispatch();
+  const filter = useSelector(selectContactsFilter);
 
-    const filterChangeHandler = e => {
-        dispatch(setContactsFilter(e.target.value));
-    };
-    
-    return <input
-                onChange={filterChangeHandler}
-                value={filter}
-                type="text"
-                name="filter"
-                pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                placeholder="Find by name"
-            />
-}
+  const filterChangeHandler = event => {
+    dispatch(setContactsFilter(event.target.value));
+  };
+
+  return (
+    <>
+      <Container maxWidth="xs">
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h2" variant="h5">
+            Contacts
+          </Typography>
+          <TextField
+            margin="normal"
+            fullWidth
+            id="filter"
+            value={filter}
+            type="text"
+            label="Contact filter"
+            name="filter"
+            autoFocus
+            required
+            onChange={filterChangeHandler}
+          />
+        </Box>
+      </Container>
+    </>
+  );
+};
 
 export default Filter;

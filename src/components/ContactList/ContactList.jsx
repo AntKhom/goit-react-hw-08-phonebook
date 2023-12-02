@@ -1,28 +1,53 @@
-import { selectFilteredContacts} from 'redux/tasks/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import ContactListElement from 'components/Contact/Contact';
+import propTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { selectFilteredContacts } from 'redux/tasks/selectors';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 
-import { deleteContact } from 'redux/tasks/operations';
-
-// import Contact from "../Contact/Contact";
-
-import css from "./contact.module.css";
+import { Container } from '@mui/material';
 
 const ContactList = () => {
-    const dispatch = useDispatch();
-    
-    const filteredContacts = useSelector(selectFilteredContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
 
-    return <table>
-        <tbody>
-            {filteredContacts.map(contact => (
-                <tr className={css.contact} key={contact.id}>
-                <td>{contact.name}</td>
-                <td>{contact.phone}</td>
-                <td><button className={css.btnDelete} onClick={() => dispatch(deleteContact(contact.id))}>Delete</button></td>
-            </tr>
-            )
+  return (
+    <>
+      <Container sx={{ mt: 2, flexGrow: 1 }} maxWidth="lg">
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={{ xs: 4, md: 4 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+          >
+            {filteredContacts.length ? (
+              filteredContacts.map(contact => (
+                <ContactListElement
+                  key={contact.id}
+                  id={contact.id}
+                  name={contact.name}
+                  number={contact.number}
+                />
+              ))
+            ) : (
+              <p>Your phonebook is empty. Add your contacts</p>
             )}
-        </tbody>
-    </table>
-}
+          </Grid>
+        </Box>
+      </Container>
+    </>
+  );
+};
+
+ContactList.propTypes = {
+  list: propTypes.arrayOf(
+    propTypes.shape({
+      key: propTypes.string,
+      name: propTypes.string.isRequired,
+      number: propTypes.string.isRequired,
+      deleteContact: propTypes.func,
+    })
+  ),
+};
+
 export default ContactList;
