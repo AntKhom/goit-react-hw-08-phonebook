@@ -193,7 +193,7 @@ const Header = () => {
                       color: 'inherit',
                     }}
                   >
-                    Welcome, {user.name}
+                    Salut, {user.name}
                   </Typography>
                   <MenuItem onClick={() => dispatch(logOut())}>
                     <Typography textAlign="center">Log out</Typography>
