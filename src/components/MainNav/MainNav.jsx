@@ -10,7 +10,7 @@ export const MainNav = () => {
         to="/register"
         sx={{ my: 2, color: 'white', display: 'block' }}
       >
-        Register
+        Sign Up
       </Button>
       <Button
         component={Link}

@@ -9,12 +9,9 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        position: 'fixed',
-        bottom: 0,
         py: 3,
         px: 3,
-        mt: 'auto',
-        width: '100%',
+        mt: '16px',
         backgroundColor: theme =>
           theme.palette.mode === 'light'
             ? theme.palette.grey[200]
@@ -22,7 +19,7 @@ const Footer = () => {
       }}
     >
       <Typography align="center" variant="body2" color="text.secondary">
-        {'Copyright © '}
+        {'Smile)) '}
         <Link component={NavLink} color="inherit" to="/">
           Phonebook
         </Link>{' '}

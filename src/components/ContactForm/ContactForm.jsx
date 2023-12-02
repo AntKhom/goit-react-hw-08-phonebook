@@ -110,7 +110,7 @@ const ContactForm = () => {
             sx={{ mt: 3, mb: 2 }}
             disabled={nameError || numberError}
           >
-            Add contact
+           + Add contact
           </Button>
         </Box>
       </Box>

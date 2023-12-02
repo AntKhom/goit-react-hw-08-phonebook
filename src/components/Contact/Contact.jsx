@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 const ContactListElement = props => {
   const dispatch = useDispatch();
@@ -26,7 +27,13 @@ const ContactListElement = props => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={ContactDeleteHandler} color="error">
+          <Button size="small" onClick={ContactDeleteHandler} color="error" >
+            <DeleteForeverOutlinedIcon
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                mr: 1,
+              }}
+            />
             Delete contact
           </Button>
         </CardActions>

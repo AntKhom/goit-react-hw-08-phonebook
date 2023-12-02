@@ -32,7 +32,7 @@ const HomePage = () => {
               color="text.primary"
               gutterBottom
             >
-              Welcome!
+              Salut!
             </Typography>
             <Typography
               variant="h5"
@@ -40,7 +40,7 @@ const HomePage = () => {
               color="text.secondary"
               paragraph
             >
-              This is a simple phone book application. Register or Log in if you
+              This is a simple phone book application. Sign up or Log in if you
               have your account already, and start creating your private
               collection of contacts.
             </Typography>
@@ -53,7 +53,7 @@ const HomePage = () => {
               {!isLoggedIn && (
                 <>
                   <Button component={Link} to="/register" variant="contained">
-                    Register
+                    Sign Up
                   </Button>
                   <Button component={Link} to="/login" variant="outlined">
                     Log in

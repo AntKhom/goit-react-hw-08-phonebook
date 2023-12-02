@@ -80,12 +80,12 @@ const RegistrationForm = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Register
+            Sign Up
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link component={NavLink} to="/login" variant="body2">
-                Already have an account? Sign in
+                Already have an account? Log in
               </Link>
             </Grid>
           </Grid>

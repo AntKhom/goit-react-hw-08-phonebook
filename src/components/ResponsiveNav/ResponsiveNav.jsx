@@ -19,7 +19,7 @@ export const ResponsiveNav = () => {
       ) : (
         <>
           <MenuItem component={Link} to="/register">
-            <Typography textAlign="center">Register</Typography>
+            <Typography textAlign="center">Sign Up</Typography>
           </MenuItem>
           <MenuItem component={Link} to="/login">
             <Typography textAlign="center">Log in</Typography>

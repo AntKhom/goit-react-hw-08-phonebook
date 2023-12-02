@@ -16,7 +16,7 @@ export const UserMenu = () => {
         color: 'inherit',
       }}
     >
-      Welcome, {user.name}
+      Salut, {user.name}
     </Typography>
   );
 };
